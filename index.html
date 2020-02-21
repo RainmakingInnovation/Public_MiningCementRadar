@@ -673,7 +673,7 @@
                 return d["Inc. Radar"] === "TRUE";
               });
               data = data.filter(function(d) {
-                return d["Focus Area"] !== "";
+                return d["Opportunity Space"] !== "";
               });
 
               data = data.filter(function(d) {
@@ -700,10 +700,10 @@
                   d["Total funding (US$)"] = 0;
                 }
 
-                d["Focus Area"] = d["Focus Area"].toLowerCase();
+                d["Opportunity Space"] = d["Opportunity Space"].toLowerCase();
 
                 desc.forEach(function(v) {
-                  if (d["Focus Area"] === v["Focus Area"].toLowerCase()) {
+                  if (d["Opportunity Space"] === v["Opportunity Space"].toLowerCase()) {
                     d["Themes"] = v["Themes"]
                     d["Theme Definition"] = v["Theme Definition"]
                   }
@@ -846,7 +846,7 @@
               var focusAreaSorted = d3
                 .nest()
                 .key(function(d) {
-                  return d["Focus Area"];
+                  return d["Opportunity Space"];
                 })
                 .sortKeys(focusAreaSort)
                 .rollup(function(v) {
@@ -862,7 +862,7 @@
               var count_by_focus_area = d3
                 .nest()
                 .key(function(d) {
-                  return d["Focus Area"];
+                  return d["Opportunity Space"];
                 })
                 .sortKeys(focusAreaSort)
                 .entries(data);
@@ -1059,7 +1059,7 @@
                 .append("path")
                 .attr("d", themeArc)
                 .attr("fill", function(d) {
-                  return focusAreaeBandColorScale(d.data.value.values[0]["Focus Area"])
+                  return focusAreaeBandColorScale(d.data.value.values[0]["Opportunity Space"])
                 })
                 .style("opacity", "0.7")
                 .style("stroke", "white")
@@ -1720,7 +1720,7 @@
               var nodeData = d3
                 .nest()
                 .key(function(d) {
-                  return d["Focus Area"];
+                  return d["Opportunity Space"];
                 })
                 .key(function(d) {
                   return d["Maturity"];
@@ -1733,7 +1733,7 @@
               var nodeSecondData = d3
                 .nest()
                 .key(function(d) {
-                  return d["Focus Area"];
+                  return d["Opportunity Space"];
                 })
                 .key(function(d) {
                   return d["Founded"];
@@ -1746,7 +1746,7 @@
               var nodeThirdData = d3
                 .nest()
                 .key(function(d) {
-                  return d["Focus Area"];
+                  return d["Opportunity Space"];
                 })
                 .key(function(d) {
                   return d["Activity/Acquisition Time"];
@@ -1762,7 +1762,7 @@
               data.forEach(function(d) {
                 //console.log(d);
                 for (i = 0; i < chartPieData.length; i++) {
-                  if (d["Focus Area"] === chartPieData[i].data.value.key) {
+                  if (d["Opportunity Space"] === chartPieData[i].data.value.key) {
                     var tmp_startAngleMin = chartPieData[i].startAngle + 0.025;
                     var tmp_endAngleMax = chartPieData[i].endAngle - 0.025;
                     break;
@@ -1779,7 +1779,7 @@
                 }
 
                 for (i = 0; i < nodeData.length; i++) {
-                  if (nodeData[i].key === d["Focus Area"]) {
+                  if (nodeData[i].key === d["Opportunity Space"]) {
                     for (j = 0; j < nodeData[i].values.length; j++) {
                       if (nodeData[i].values[j].key === d["Maturity"]) {
                         var results = assignRandom(
@@ -1803,7 +1803,7 @@
               data.forEach(function(d) {
                 //console.log(d)
                 for (i = 0; i < chartPieData.length; i++) {
-                  if (d["Focus Area"] === chartPieData[i].data.value.key) {
+                  if (d["Opportunity Space"] === chartPieData[i].data.value.key) {
                     var tmp_startAngleMin = chartPieData[i].startAngle + 0.025;
                     var tmp_endAngleMax = chartPieData[i].endAngle - 0.025;
                     break;
@@ -1820,7 +1820,7 @@
                   }
                 }
                 for (i = 0; i < nodeSecondData.length; i++) {
-                  if (nodeSecondData[i].key === d["Focus Area"]) {
+                  if (nodeSecondData[i].key === d["Opportunity Space"]) {
                     for (j = 0; j < nodeSecondData[i].values.length; j++) {
                       if (nodeSecondData[i].values[j].key === d["Founded"]) {
                         var results = assignRandom(
@@ -2156,7 +2156,7 @@
                 }
                 if (type === "focus area" && filterKey !== "") {
                   nodes.attr("opacity", function(d) {
-                    if (d["Focus Area"].toLowerCase() !== filterKey) {
+                    if (d["Opportunity Space"].toLowerCase() !== filterKey) {
                       d.opacity = 0.3;
                     } else {
                       d.opacity = 1;
@@ -2165,7 +2165,7 @@
                   });
 
                   nodes_acquired.attr("opacity", function(d) {
-                    if (d["Focus Area"].toLowerCase() !== filterKey) {
+                    if (d["Opportunity Space"].toLowerCase() !== filterKey) {
                       d.opacity = 0.3;
                     } else {
                       d.opacity = 1;
@@ -2621,7 +2621,7 @@
                 desc.forEach(function(v) {
                   if (
                     segment_data.data.value.key ===
-                    v["Focus Area"].toLowerCase()
+                    v["Opportunity Space"].toLowerCase()
                   ) {
                     segmentDesc = v.Description;
                   }
@@ -2757,7 +2757,7 @@
                 var count_by_focus_area = d3
                   .nest()
                   .key(function(d) {
-                    return d["Focus Area"];
+                    return d["Opportunity Space"];
                   })
                   .sortKeys(focusAreaSort)
                   .entries(
@@ -2771,7 +2771,7 @@
                   );
 
                 nodes.attr("opacity", function(d) {
-                  if (d["Focus Area"] === segment_data.data.value.key) {
+                  if (d["Opportunity Space"] === segment_data.data.value.key) {
                     return 1;
                   } else {
                     return 0.3;
@@ -2779,7 +2779,7 @@
                 });
 
                 nodes_acquired.attr("opacity", function(d) {
-                  if (d["Focus Area"] === segment_data.data.value.key) {
+                  if (d["Opportunity Space"] === segment_data.data.value.key) {
                     return 1;
                   } else {
                     return 0.3;
@@ -3305,7 +3305,7 @@
                       })
                       .attr("opacity", function(d) {
                         if (
-                          d["Focus Area"] === chartPieData[i].data.value.key
+                          d["Opportunity Space"] === chartPieData[i].data.value.key
                         ) {
                           return d.opacity;
                         } else {
@@ -3354,7 +3354,7 @@
                       })
                       .attr("opacity", function(d) {
                         if (
-                          d["Focus Area"] === chartPieData[i].data.value.key
+                          d["Opportunity Space"] === chartPieData[i].data.value.key
                         ) {
                           return d.opacity;
                         } else {
