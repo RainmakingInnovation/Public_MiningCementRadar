@@ -664,10 +664,10 @@
       "Asset Lifecycle", "Productivity", "Sustainability", "Customer Solutions"]
 
       d3.csv(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vSafGm_gSEK_M6dTEcS3sd2N7CcehHPfg561BJtgzrHClIt5DH79yqHI1LpeOLbbwGob_Xi0kVUdxMB/pub?gid=595532865&single=true&output=csv",
+        "https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vSafGm_gSEK_M6dTEcS3sd2N7CcehHPfg561BJtgzrHClIt5DH79yqHI1LpeOLbbwGob_Xi0kVUdxMB/pub?gid=595532865&single=true&output=csv",
         function(data) {
           d3.csv(
-            "https://docs.google.com/spreadsheets/d/e/2PACX-1vSafGm_gSEK_M6dTEcS3sd2N7CcehHPfg561BJtgzrHClIt5DH79yqHI1LpeOLbbwGob_Xi0kVUdxMB/pub?gid=1133714981&single=true&output=csv",
+            "https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vSafGm_gSEK_M6dTEcS3sd2N7CcehHPfg561BJtgzrHClIt5DH79yqHI1LpeOLbbwGob_Xi0kVUdxMB/pub?gid=1133714981&single=true&output=csv",
             function(desc) {
               data = data.filter(function(d) {
                 return d["Inc. Radar"] === "TRUE";
